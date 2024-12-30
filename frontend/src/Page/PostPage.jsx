@@ -1,7 +1,8 @@
-import { Avatar, Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Avatar, Box, Button, Divider, Flex, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 import Actions from "../Components/Actions";
+import Comment from "../Components/Comment";
 
 const PostPage = () => {
   const [liked, setLiked] = useState(false);
@@ -31,10 +32,42 @@ const PostPage = () => {
       </Flex>
 
       <Flex gap={2} alignItems={"center"}>
-        <Text color={"gray.light"} fontSize={"sm"}>238 likes</Text>
+        <Text color={"gray.light"} fontSize={"sm"}>{200 + (liked ? 1 : 0)} likes</Text>
         <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
         <Text color={"gray.light"} fontSize={"sm"}>98 replies</Text>
       </Flex>
+      <Divider my={4}/>
+
+      <Flex justifyContent={"space-between"}>
+        <Flex gap={2} alignItems={"center"}>
+          <Text fontSize={"2xl"}>👋</Text>
+          <Text color={"gray.light"}>Get the app to like, reply and post.</Text>
+        </Flex>
+        <Button>Get</Button>
+      </Flex>
+      <Divider my={4} />
+      
+      <Comment 
+        comment='Looks really good!'
+        createdAt='2d'
+        likes={100}
+        username='johndoe'
+        userAvatar='https://bit.ly/dan-abramov'
+      />
+      <Comment 
+        comment='Looks really good!'
+        createdAt='2d'
+        likes={124}
+        username='Kent'
+        userAvatar='https://bit.ly/kent-c-dodds'
+      />
+      <Comment 
+        comment='Looks really good!'
+        createdAt='2d'
+        likes={98}
+        username='Ryan'
+        userAvatar='https://bit.ly/ryan-florence'
+      />
     </>
   )
 }
